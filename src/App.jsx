@@ -17,26 +17,25 @@ function App() {
   ]);
   const [filteredStudents, setFilteredStudents] = useState(students);
 
-  // TODO: filterByAge 함수를 작성하세요. 이 함수는 최소 나이를 매개변수로 받아 해당 나이 이상인 학생들로 필터링해야 합니다.
   const filterByAge = (minAge) => {
-    // 여기에 코드를 작성하세요.
+    const result = students.filter((student) => student.age >= minAge);
+    setFilteredStudents(result);
   };
 
-  // TODO: filterByGrade 함수를 작성하세요. 이 함수는 특정 학점을 매개변수로 받아 해당 학점의 학생들로 필터링해야 합니다.
   const filterByGrade = (grade) => {
-    // 여기에 코드를 작성하세요.
+    const result = students.filter((student) => student.grade === grade);
+    setFilteredStudents(result);
   };
 
-  // TODO: resetFilter 함수를 작성하세요. 이 함수는 필터를 초기화하여 모든 학생들을 표시해야 합니다.
   const resetFilter = () => {
-    // 여기에 코드를 작성하세요.
+    setFilteredStudents(students);
   };
 
   return (
     <div>
       <h1>학생 목록</h1>
       <button onClick={() => filterByAge(24)}>24세 이상</button>
-      <button onClick={() => filterByGrade("A")}>A등급</button>
+      <button onClick={() => filterByGrade("F")}>A등급</button>
       <button onClick={resetFilter}>필터 초기화</button>
       <ul>
         {filteredStudents.map((student, index) => (
